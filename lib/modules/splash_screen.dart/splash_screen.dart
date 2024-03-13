@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:habit/core/router_name.dart';
 import 'package:habit/utils/constants.dart';
 import 'package:habit/utils/k_images.dart';
 
@@ -14,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
-      // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => YourNextScreen()));
+      Navigator.pushReplacementNamed(context, RouteNames.homeScreen);
       // Replace YourNextScreen() with the screen you want to navigate to after splash screen.
     });
   }
