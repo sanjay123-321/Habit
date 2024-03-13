@@ -29,11 +29,13 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image.asset(
               Kimages.habitLogo,
-              width: 200,
-              height: 200,
+              width: 300,
+              height: 300,
             ),
             SizedBox(height: 20),
-            // CircularProgressIndicator(), // Optional: Loading indicator
+            CircularProgressIndicator(
+              color: Colors.green,
+            ), // Optional: Loading indicator
           ],
         ),
       ),

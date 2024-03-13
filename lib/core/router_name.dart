@@ -7,7 +7,7 @@ class RouteNames {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RouteNames.onBoardingScreen:
+      case RouteNames.splashScreen:
         return MaterialPageRoute(
             settings: settings, builder: (_) => SplashScreen());
 
