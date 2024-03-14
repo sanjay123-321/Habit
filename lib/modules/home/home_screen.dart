@@ -1,5 +1,7 @@
+import 'package:appbar_animated/appbar_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:habit/core/router_name.dart';
+import 'package:habit/utils/constants.dart';
 import 'package:ionicons/ionicons.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,31 +37,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(''),
-          leading: IconButton(
-            icon: const Icon(Ionicons.grid_outline),
-            onPressed: () {
-              Navigator.pushNamed(context, RouteNames.menuScreen);
-            },
-          ),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Ionicons.add),
-            ),
-            IconButton(
-              icon: Icon(
-                Ionicons.stats_chart,
-                size: 25,
-              ),
-              onPressed: () {},
-            ),
-          ],
-        ),
-        body: Stack(
+    return Scaffold(
+      body: ScaffoldLayoutBuilder(
+        backgroundColorAppBar:
+            const ColorBuilder(Colors.transparent, blackColor),
+        textColorAppBar: const ColorBuilder(Colors.white),
+        appBarBuilder: _appBar,
+        child: Stack(
           children: [
             Column(
               children: [
@@ -121,3 +105,54 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+AppBar _appBar(BuildContext context, ColorAnimated colorAnimated) {
+  return AppBar(
+    backgroundColor: colorAnimated.background,
+    elevation: 0,
+    title: Text(
+      "Habit",
+      style: TextStyle(
+        color: colorAnimated.color,
+      ),
+    ),
+    leading: IconButton(
+      color: colorAnimated.color,
+      onPressed: () {},
+      icon: Icon(Ionicons.grid_outline),
+    ),
+    actions: [
+      IconButton(
+        onPressed: () {},
+        icon: Icon(
+          Icons.favorite,
+          color: colorAnimated.color,
+        ),
+      ),
+    ],
+  );
+}
+
+
+// AppBar(
+//           title: Text(''),
+//           leading: IconButton(
+//             icon: const Icon(Ionicons.grid_outline),
+//             onPressed: () {
+//               Navigator.pushNamed(context, RouteNames.menuScreen);
+//             },
+//           ),
+//           actions: [
+//             IconButton(
+//               onPressed: () {},
+//               icon: Icon(Ionicons.add),
+//             ),
+//             IconButton(
+//               icon: Icon(
+//                 Ionicons.stats_chart,
+//                 size: 25,
+//               ),
+//               onPressed: () {},
+//             ),
+//           ], required Color backgroundColor,
+//         ),
