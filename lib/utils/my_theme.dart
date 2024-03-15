@@ -24,13 +24,20 @@ class MyTheme {
           iconTheme: IconThemeData(color: whiteColor),
           elevation: 0,
         ),
-        textTheme: TextTheme(
-          caption: TextStyle(fontSize: 12, height: 1.83),
-          bodyText1: TextStyle(
-              fontSize: 16, fontWeight: FontWeight.w500, height: 1.375),
-          bodyText2: TextStyle(fontSize: 14, height: 1.5714),
-          button:
-              TextStyle(fontSize: 16, height: 2, fontWeight: FontWeight.w600),
+        textTheme: const TextTheme(
+          bodySmall: TextStyle(fontSize: 12, height: 1.83, color: whiteColor),
+          bodyLarge: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+              height: 1.375,
+              color: whiteColor),
+          bodyMedium:
+              TextStyle(fontSize: 14, height: 1.5714, color: whiteColor),
+          labelLarge: TextStyle(
+              fontSize: 16,
+              height: 2,
+              fontWeight: FontWeight.w600,
+              color: whiteColor),
           // titleLarge: const TextStyle(
           //     fontSize: 16, height: 2, fontWeight: FontWeight.w600),
         ),

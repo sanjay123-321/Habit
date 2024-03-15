@@ -16,7 +16,6 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, RouteNames.homeScreen);
-      // Replace YourNextScreen() with the screen you want to navigate to after splash screen.
     });
   }
 
@@ -36,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
             SizedBox(height: 20),
             CircularProgressIndicator(
               color: Colors.green,
-            ), // Optional: Loading indicator
+            ),
           ],
         ),
       ),
