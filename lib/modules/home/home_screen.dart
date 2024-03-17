@@ -1,31 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:habit/utils/constants.dart';
+import 'package:habit/modules/home/component/sliver_app_bar.dart';
+import 'package:habit/utils/language_string.dart';
+import 'package:habit/widgets/capitalize_words.dart';
+import 'package:habit/widgets/home_floating_action_button.dart';
 
-import 'component/sliver_app_bar.dart';
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(
+      length: 3,
+      vsync: this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: themeBlackColor,
       body: CustomScrollView(
         slivers: <Widget>[
-          const HomeSliverAppbar(),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return ListTile(
-                  title: Text(
-                    'Item $index',
-                    style: TextStyle(color: whiteColor),
-                  ),
-                );
-              },
-              childCount: 50,
+          CustomAppBar(
+            controller: controller,
+          ),
+          SliverFillRemaining(
+            child: TabBarView(
+              controller: controller,
+              children: <Widget>[
+                Center(child: Text("Tab one")),
+                Center(child: Text("Tab two")),
+                Center(child: Text("Tab three")),
+              ],
             ),
           ),
+          // HomeNavigator(),
         ],
       ),
     );
