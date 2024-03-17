@@ -1,6 +1,5 @@
 import "package:flutter/material.dart";
 import "package:habit/core/router_name.dart";
-import "package:habit/utils/k_images.dart";
 import "package:habit/utils/my_theme.dart";
 
 void main() => runApp(const MyApp());

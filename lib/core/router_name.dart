@@ -4,10 +4,10 @@ import 'package:habit/modules/menu/menu_screen.dart';
 import 'package:habit/modules/splash_screen.dart/splash_screen.dart';
 
 class RouteNames {
-  static const String onBoardingScreen = '/onBoardingScreen';
   static const String splashScreen = '/';
+  static const String onBoardingScreen = '/onBoardingScreen';
   static const String homeScreen = '/homeScreen';
-  static const String menuScreen = '/menyScreen';
+  static const String menuScreen = '/menuScreen';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -19,7 +19,7 @@ class RouteNames {
             settings: settings, builder: (_) => HomeScreen());
       case RouteNames.menuScreen:
         return MaterialPageRoute(
-            settings: settings, builder: (_) => MenuScreen());
+            settings: settings, builder: (_) => const MenuScreen());
 
       default:
         return MaterialPageRoute(
