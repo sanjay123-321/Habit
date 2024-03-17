@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit/modules/home/component/sliver_app_bar.dart';
-import 'package:habit/utils/language_string.dart';
-import 'package:habit/widgets/capitalize_words.dart';
-import 'package:habit/widgets/home_floating_action_button.dart';
+import 'package:habit/widgets/home_bottom_navigator.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -40,9 +38,9 @@ class _HomeScreenState extends State<HomeScreen>
               ],
             ),
           ),
-          // HomeNavigator(),
         ],
       ),
+      bottomNavigationBar: HomeBottomNavigator(),
     );
   }
 }

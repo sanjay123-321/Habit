@@ -35,7 +35,6 @@ class _CustomAppBarState extends State<CustomAppBar> {
       floating: false,
       pinned: true,
       expandedHeight: 150.0,
-
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: EdgeInsets.zero,
         centerTitle: true,
@@ -52,23 +51,50 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ],
           ),
         ),
-        // background: Image.asset("assets/earth.png", fit: BoxFit.cover),
       ),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(50.0), // Adjust the height as needed
+        preferredSize: Size.fromHeight(50.0),
         child: Container(
-          child: TabBar(
-            tabs: [
-              Tab(text: 'Tab 1'),
-              Tab(text: 'Tab 2'),
-              Tab(text: 'Tab 3'),
-            ],
-            controller: widget.controller,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
+            color: themeBlackColor,
+          ),
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: TabBar(
+              isScrollable: true,
+              tabs: [
+                _buildTab('Today'),
+                _buildTab('Weekly'),
+                _buildTab('Overall'),
+              ],
+              indicatorWeight: 8,
+              indicatorSize: TabBarIndicatorSize.tab,
+              dividerColor: themeBlackColor,
+              unselectedLabelColor: Colors.grey,
+              automaticIndicatorColorAdjustment: true,
+              controller: widget.controller,
+              labelColor: Colors.white,
+              indicator: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.grey.withOpacity(0.15),
+              ),
+            ),
           ),
         ),
       ),
-      // bottomOpacity: 1.0,
-      elevation: 0.0,
+    );
+  }
+
+  Widget _buildTab(String text) {
+    return Tab(
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          style: TextStyle(fontSize: 17.0),
+        ),
+      ),
     );
   }
 }
