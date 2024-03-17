@@ -34,27 +34,29 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ],
       floating: false,
       pinned: true,
-      expandedHeight: 160.0,
+      expandedHeight: 150.0,
+
       flexibleSpace: FlexibleSpaceBar(
+        titlePadding: EdgeInsets.zero,
         centerTitle: true,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // const SizedBox(
-            //   height: 15,
-            // ),
-            Text(
-              Language.appName.capitalizeByWord(),
-              style: TextStyle(color: whiteColor),
-            ),
-          ],
+        title: SizedBox(
+          height: 130,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                Language.appName.capitalizeByWord(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: whiteColor),
+              ),
+            ],
+          ),
         ),
+        // background: Image.asset("assets/earth.png", fit: BoxFit.cover),
       ),
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(40.0), // Adjust the height as needed
+        preferredSize: Size.fromHeight(50.0), // Adjust the height as needed
         child: Container(
-          color: themeBlackColor,
           child: TabBar(
             tabs: [
               Tab(text: 'Tab 1'),
@@ -65,6 +67,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
           ),
         ),
       ),
+      // bottomOpacity: 1.0,
+      elevation: 0.0,
     );
   }
 }
