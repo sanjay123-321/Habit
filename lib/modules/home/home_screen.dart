@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habit/modules/home/component/sliver_app_bar.dart';
+import 'package:habit/modules/home/component/sub_screens/today/today_screen.dart';
 import 'package:habit/widgets/home_bottom_navigator.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,24 +24,33 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          CustomAppBar(
-            controller: controller,
+      body: Stack(
+        children: <Widget>[
+          CustomScrollView(
+            slivers: <Widget>[
+              CustomAppBar(
+                controller: controller,
+              ),
+              SliverFillRemaining(
+                child: TabBarView(
+                  controller: controller,
+                  children: <Widget>[
+                    TodayScreen(),
+                    Center(child: Text("Tab two")),
+                    Center(child: Text("Tab three")),
+                  ],
+                ),
+              ),
+            ],
           ),
-          SliverFillRemaining(
-            child: TabBarView(
-              controller: controller,
-              children: <Widget>[
-                Center(child: Text("Tab one")),
-                Center(child: Text("Tab two")),
-                Center(child: Text("Tab three")),
-              ],
-            ),
+          Positioned(
+            left: 30,
+            right: 30,
+            bottom: 0,
+            child: HomeBottomNavigator(),
           ),
         ],
       ),
-      bottomNavigationBar: HomeBottomNavigator(),
     );
   }
 }

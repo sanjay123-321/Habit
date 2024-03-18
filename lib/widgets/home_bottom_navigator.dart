@@ -1,56 +1,51 @@
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:habit/utils/constants.dart';
 import 'package:ionicons/ionicons.dart';
 
-class HomeBottomNavigator extends StatelessWidget {
-  const HomeBottomNavigator({
-    super.key,
-  });
-
+class HomeBottomNavigator extends StatefulWidget {
   @override
+  _HomeBottomNavigatorState createState() => _HomeBottomNavigatorState();
+}
+
+class _HomeBottomNavigatorState extends State<HomeBottomNavigator>
+    with TickerProviderStateMixin {
+  var _selectedTab = _SelectedTab.home;
+
+  void _handleIndexChanged(int i) {
+    setState(() {
+      _selectedTab = _SelectedTab.values[i];
+    });
+  }
+
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20.0),
-            child: Container(
-              margin: EdgeInsets.only(
-                  bottom: 8.0), // Added margin below the container
-              decoration: BoxDecoration(
-                color: Colors.grey[800],
-                borderRadius: BorderRadius.circular(30.0),
-              ),
-              padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 10.0),
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                    icon: const Icon(
-                      Icons.view_agenda_outlined,
-                      color: whiteColor,
-                    ),
-                    onPressed: () {
-                      // Navigate to first screen
-                    },
-                  ),
-                  const SizedBox(width: 20.0),
-                  IconButton(
-                    icon: const Icon(
-                      Ionicons.apps,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      // Navigate to second screen
-                    },
-                  ),
-                ],
-              ),
-            ),
+    return SizedBox(
+      height: 151,
+      child: DotNavigationBar(
+        enableFloatingNavBar: true,
+        enablePaddingAnimation: true,
+        // margin: EdgeInsets.only(left: 10, right: 10),
+        currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+        dotIndicatorColor: Colors.white,
+        unselectedItemColor: Colors.grey[300],
+        splashBorderRadius: 30,
+        onTap: _handleIndexChanged,
+        items: [
+          /// Home
+          DotNavigationBarItem(
+            icon: Icon(Icons.home),
+            selectedColor: Color(0xff73544C),
+          ),
+
+          /// Likes
+          DotNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            selectedColor: Color(0xff73544C),
           ),
         ],
       ),
     );
   }
 }
+
+enum _SelectedTab { home, favorite }

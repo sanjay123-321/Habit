@@ -15,6 +15,7 @@ dependencies:
   http: ^1.2.0
   ionicons: ^0.2.2
   appbar_animated: ^0.0.3
+  dot_navigation_bar: ^1.0.2
   # google_fonts: ^6.2.0
 
 dev_dependencies:
