@@ -22,25 +22,23 @@ class _HomeBottomNavigatorState extends State<HomeBottomNavigator>
     return SizedBox(
       height: 151,
       child: DotNavigationBar(
+        backgroundColor: Colors.blueGrey[800],
         enableFloatingNavBar: true,
-        enablePaddingAnimation: true,
+        // enablePaddingAnimation: true,
         // margin: EdgeInsets.only(left: 10, right: 10),
         currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-        dotIndicatorColor: Colors.white,
+        dotIndicatorColor: Colors.transparent,
         unselectedItemColor: Colors.grey[300],
         splashBorderRadius: 30,
         onTap: _handleIndexChanged,
         items: [
-          /// Home
           DotNavigationBarItem(
-            icon: Icon(Icons.home),
-            selectedColor: Color(0xff73544C),
+            icon: Icon(Icons.view_agenda_outlined),
+            selectedColor: themeBlueColor,
           ),
-
-          /// Likes
           DotNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            selectedColor: Color(0xff73544C),
+            icon: Icon(Ionicons.apps),
+            selectedColor: themeBlueColor,
           ),
         ],
       ),
