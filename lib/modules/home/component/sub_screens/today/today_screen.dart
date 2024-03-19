@@ -8,128 +8,17 @@ class TodayScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [
-          TodayListTile(
-            bgColor: Colors.cyan.withOpacity(0.6),
-            title: 'Title 1',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-          TodayListTile(
-            bgColor: Colors.cyan,
-            title: 'Title 2',
-          ),
-        ],
+        children: List.generate(20, (index) {
+          // Generate alternating background colors
+          Color bgColor =
+              index % 2 == 0 ? Colors.cyan.withOpacity(0.6) : Colors.cyan;
+          // Generate alternating titles
+          String title = index % 2 == 0 ? 'Title 1' : 'Title 2';
+          return TodayListTile(
+            bgColor: bgColor,
+            title: title,
+          );
+        }),
       ),
     );
   }
