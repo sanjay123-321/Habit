@@ -25,6 +25,10 @@ class MyTheme {
           elevation: 0,
         ),
         textTheme: const TextTheme(
+          titleLarge: TextStyle(color: whiteColor),
+          titleMedium: TextStyle(color: whiteColor),
+          titleSmall: TextStyle(color: whiteColor),
+          // bodyLarge: TextStyle(color: whiteColor),
           bodySmall: TextStyle(fontSize: 12, height: 1.83, color: whiteColor),
           bodyLarge: TextStyle(
               fontSize: 16,
@@ -81,9 +85,9 @@ class MyTheme {
           focusColor: inputFieldBgColor,
         ),
         textSelectionTheme: const TextSelectionThemeData(
-          cursorColor: blackColor,
-          selectionColor: blackColor,
-          selectionHandleColor: blackColor,
+          cursorColor: whiteColor,
+          selectionColor: whiteColor,
+          selectionHandleColor: whiteColor,
         ),
       );
 }

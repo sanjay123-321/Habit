@@ -3,6 +3,7 @@ import 'package:habit/utils/constants.dart';
 import 'package:habit/widgets/capitalize_words.dart';
 import 'package:ionicons/ionicons.dart';
 
+import '../../../core/router_name.dart';
 import '../../../utils/language_string.dart';
 
 class CustomAppBar extends StatefulWidget {
@@ -25,7 +26,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
       actions: [
         IconButton(
           icon: const Icon(Ionicons.add_outline),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, RouteNames.addHabitScreen);
+          },
         ),
         IconButton(
           icon: const Icon(Ionicons.stats_chart_outline),

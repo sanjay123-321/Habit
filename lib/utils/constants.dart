@@ -21,6 +21,8 @@ const Color grayBorderColor = Color(0xffE8E8E8);
 const Color whiteColor = Color.fromARGB(255, 255, 255, 255);
 const Color themeBlackColor = Color.fromRGBO(0, 0, 0, 1);
 const Color themeBlueColor = Color.fromRGBO(35, 67, 248, 1);
+const Color textFieldBgColor = Color(0xFF1A1A1A);
+const Color textFieldTextColor = Color(0xFF696969);
 //const greenGredient = [lightningYellowColor, lightningYellowColor];
 
 // #duration
